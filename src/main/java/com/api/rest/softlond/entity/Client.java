@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,6 +32,6 @@ public class Client {
     private Integer phoneNumber;
 
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Sale> sales;
+    private List<Sale> sales = new ArrayList<>();
 
 }

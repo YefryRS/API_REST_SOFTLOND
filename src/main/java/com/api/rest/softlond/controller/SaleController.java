@@ -53,9 +53,8 @@ public class SaleController {
 
     @PostMapping
     public ResponseEntity<Sale> save(@RequestBody Sale sale) {
-
-        saleService.saveOrUpdate(sale);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        Sale saleSave = saleService.saveOrUpdate(sale);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saleSave);
     }
 
     @PutMapping("{id}")
