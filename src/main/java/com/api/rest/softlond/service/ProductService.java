@@ -1,6 +1,8 @@
 package com.api.rest.softlond.service;
 
 import com.api.rest.softlond.entity.Product;
+import com.api.rest.softlond.error.LocalInternalServerErrorException;
+import com.api.rest.softlond.error.LocalNotFoundException;
 import com.api.rest.softlond.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +21,12 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public List<Product> findAll() {
+    public List<Product> findAll() throws LocalNotFoundException, LocalInternalServerErrorException {
         return productRepository.findAll();
     }
 
     @Override
-    public Optional<Product> findById(Long id) {
+    public Optional<Product> findById(Long id) throws LocalNotFoundException {
         return productRepository.findById(id);
     }
 
@@ -34,7 +36,7 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id) throws LocalNotFoundException {
         productRepository.deleteById(id);
     }
 
