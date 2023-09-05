@@ -2,12 +2,12 @@ package com.api.rest.softlond.service;
 
 import com.api.rest.softlond.entity.Client;
 import com.api.rest.softlond.entity.Sale;
+import com.api.rest.softlond.error.LocalInternalServerErrorException;
+import com.api.rest.softlond.error.LocalNotFoundException;
 import com.api.rest.softlond.repository.SaleRepository;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -24,12 +24,12 @@ public class SaleService implements ISaleService{
 
 
     @Override
-    public List<Sale> findAll() {
+    public List<Sale> findAll() throws LocalNotFoundException, LocalInternalServerErrorException {
         return saleRepository.findAll();
     }
 
     @Override
-    public Optional<Sale> findById(Long id) {
+    public Optional<Sale> findById(Long id) throws LocalNotFoundException {
         return saleRepository.findById(id);
     }
 
@@ -39,22 +39,22 @@ public class SaleService implements ISaleService{
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id) throws LocalNotFoundException {
         saleRepository.deleteById(id);
     }
 
     @Override
-    public List<Sale> findByDate(LocalDate date) {
+    public List<Sale> findByDate(LocalDate date) throws LocalNotFoundException{
         return saleRepository.findByDate(date);
     }
 
     @Override
-    public List<Sale> findByClient(Long id) {
+    public List<Sale> findByClient(Long id) throws LocalNotFoundException {
         return saleRepository.findByClient(id);
     }
 
     @Override
-    public List<Sale> findByClientAndDate(Long id, LocalDate dateFirst, LocalDate dateEnd) {
+    public List<Sale> findByClientAndDate (Long id, LocalDate dateFirst, LocalDate dateEnd) throws LocalNotFoundException {
         return saleRepository.findByClientAndDate(id,dateFirst,dateEnd);
     }
 
