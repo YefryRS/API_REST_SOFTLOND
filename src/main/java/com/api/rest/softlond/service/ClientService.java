@@ -1,12 +1,12 @@
 package com.api.rest.softlond.service;
 
 import com.api.rest.softlond.entity.Client;
-import com.api.rest.softlond.entity.Sale;
+import com.api.rest.softlond.error.LocalInternalServerErrorException;
+import com.api.rest.softlond.error.LocalNotFoundException;
 import com.api.rest.softlond.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,12 +21,12 @@ public class ClientService implements IClientService{
     }
 
     @Override
-    public List<Client> findAll() {
+    public List<Client> findAll() throws LocalNotFoundException, LocalInternalServerErrorException {
         return clientRepository.findAll();
     }
 
     @Override
-    public Optional<Client> findById(Long id) {
+    public Optional<Client> findById(Long id) throws LocalNotFoundException {
         return clientRepository.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class ClientService implements IClientService{
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id) throws LocalNotFoundException{
         clientRepository.deleteById(id);
     }
 

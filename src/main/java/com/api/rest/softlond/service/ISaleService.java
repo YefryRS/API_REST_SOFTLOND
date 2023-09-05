@@ -15,5 +15,5 @@ public interface ISaleService {
     public Optional<Sale> findById(Long id);
     public Sale saveOrUpdate(Sale sale);
     public void delete(Long id);
-    public void applyDiscount(Sale sale);
+
 }

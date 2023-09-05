@@ -35,10 +35,7 @@ public class SaleService implements ISaleService{
 
     @Override
     public Sale saveOrUpdate(Sale sale) {
-        Sale savedSale = saleRepository.save(sale);
-        applyDiscount(savedSale);
-
-        return savedSale;
+        return saleRepository.save(sale);
     }
 
     @Override
@@ -62,7 +59,6 @@ public class SaleService implements ISaleService{
     }
 
     //Aplicar descuento
-    @Override
     public void applyDiscount(Sale sale) {
 
         Client client = sale.getClient();
