@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("/api/product")
 public class ProductController {
 
     private final IProductService productService;
