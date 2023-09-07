@@ -21,4 +21,7 @@ public interface SaleRepository extends JpaRepository<Sale,Long> {
     @Query(value = "SELECT * FROM sale WHERE cliente_id = :id_client AND date BETWEEN :datefirst and :dateEnd",nativeQuery = true)
     List<Sale> findByClientAndDate(@Param("id_client") Long idClient,@Param("datefirst") LocalDate dateFirst,@Param("dateEnd") LocalDate dateEnd);
 
+    @Query(value = "SELECT SUM(totalSale) FROM sale WHERE cliente_id = :id_client AND date BETWEEN :datefirst and :dateEnd",nativeQuery = true)
+    Double findByDiscount(@Param("id_client") Long idClient, @Param("datefirst") LocalDate dateFirst, @Param("dateEnd") LocalDate dateEnd);
+
 }

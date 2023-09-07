@@ -93,7 +93,7 @@ public class SaleController {
 
     @PostMapping
     public ResponseEntity<Sale> save(@Valid @RequestBody Sale sale) {
-        Sale saleSave = saleService.saveOrUpdate(sale);
+        Sale saleSave = saleService.save(sale);
         return ResponseEntity.status(HttpStatus.CREATED).body(saleSave);
     }
 
@@ -107,7 +107,7 @@ public class SaleController {
             throw new LocalNotFoundException("No se encontro la venta");
         }
         sale.setId(id);
-        saleService.saveOrUpdate(sale);
+        saleService.update(sale);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

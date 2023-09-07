@@ -1,14 +1,11 @@
 package com.api.rest.softlond.config;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-@Component
+/*@Component
 public class JwtUtil {
     private static String SECRET_KEY = "softlond_m4rk3t";
     private static Algorithm ALGORITHM = Algorithm.HMAC256(SECRET_KEY);
@@ -41,4 +38,4 @@ public class JwtUtil {
                 .verify(jwt)
                 .getSubject();
     }
-}
+}*/

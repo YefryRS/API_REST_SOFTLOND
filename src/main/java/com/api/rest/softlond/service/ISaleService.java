@@ -15,7 +15,8 @@ public interface ISaleService {
     public List<Sale> findByClient(Long id) throws LocalNotFoundException;
     public List<Sale> findByClientAndDate(Long id,LocalDate dateFirst,LocalDate dateEnd) throws LocalNotFoundException;
     public Optional<Sale> findById(Long id) throws LocalNotFoundException;
-    public Sale saveOrUpdate(Sale sale);
+    public Sale save(Sale sale);
+    public Sale update(Sale sale);
     public void delete(Long id) throws LocalNotFoundException;
 
 }
