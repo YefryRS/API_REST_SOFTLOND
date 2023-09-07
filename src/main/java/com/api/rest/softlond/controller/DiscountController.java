@@ -23,7 +23,13 @@ public class DiscountController {
     }
 
     @PostMapping
-    public ResponseEntity<Discount> saveOrUpdate(@RequestBody Discount discount) {
+    public ResponseEntity<Discount> save(@RequestBody Discount discount) {
+        return ResponseEntity.ok().body(discountService.saveOrUpdate(discount));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Discount> update(@RequestBody Discount discount, @PathVariable Long id) {
+        discount.setId(id);
         return ResponseEntity.ok().body(discountService.saveOrUpdate(discount));
     }
 
