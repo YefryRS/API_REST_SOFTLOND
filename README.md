@@ -33,4 +33,4 @@ cualquier momento. Las 3 opciones son:
 Nota: Máximo se pueden dar tres intentos
 
 
-Tuve que implementar las capas mas comunes, el entity, repository, service y controller. Tuve que hacer uso de las relaciones valiendome de Jpa. Decidk implementar un manejo de excepciones para controlar mejor los metodos http. Ahora he implementado un poco de seguridad pero de forma basica, es la primera vex que lo implemento pero aun falta terminar esta parte de seguridad.
+Tuve que implementar las capas mas comunes, el entity, repository, service y controller. Tuve que hacer uso de las relaciones valiendome de Jpa. Decidí implementar un manejo de excepciones para controlar mejor los metodos http. Ahora he implementado un poco de seguridad pero de forma basica, es la primera vez que lo implemento pero aun falta terminar esta parte de seguridad. Deseo crecerlo y para eso tengo pensado implementar testing y swagger para documentar la api, estos dos ultimos nunca los he usado pero sé que en proyectos reales las empresas los usan. 
